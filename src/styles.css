@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+
+}
+
+header{
+    flex: 1;
+    min-height: 60px;
+}
+
+#content{
+    flex: 15;  
+    background-color: blue;
+}
+
+.homepage{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-bottom: 24px;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.homepage .title{
+    margin-top: 15px;
+    background-color: yellow;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 72px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.slogan{
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: yellow;
+    padding: 25px;
+}
+
+.slogan p:nth-child(2){
+    text-align: right;
+    font-weight: bold;
+}
+
+.hours{
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: yellow;
+    padding: 25px;
+}
+
+.hours p:nth-child(1){
+    font-weight: bold;
+}
+
+.hours ul{
+    text-align: center;
+    list-style: none;
+}
+
+.location{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: yellow;
+    padding: 25px;
+}
+
+.location p:nth-child(1){
+    font-weight: bold;
+}
+
+.credits{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: yellow;
+    padding: 25px; 
+}
+
+.menu{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-bottom: 24px;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.menu .title:nth-child(1){
+    margin-top: 15px;
+    background-color: yellow;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 72px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.menu .title{
+    background-color: yellow;
+    width: 25% ;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.menu img{
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin-left: auto;
+}
+
+.menu div{
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: yellow;
+    padding: 25px;
+}
+.menu div *{
+    margin-bottom: 8px;
+}
+.menu div p:nth-child(1), p:nth-child(3){
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.contact-us{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-bottom: 24px;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+.contact-us .title{
+    margin-top: 15px;
+    background-color: yellow;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 72px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contact-us div p:nth-child(1){
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.contact-us div{
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: yellow;
+    padding: 25px;
+}
