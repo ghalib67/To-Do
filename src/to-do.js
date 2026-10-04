@@ -4,3 +4,5 @@ function ToDo(title, description, dueDate, priority, notes = false, checklist = 
     this.dueDate = dueDate;
     this.priority = priority;
 }
+
+export default ToDo
