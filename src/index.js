@@ -1,5 +1,6 @@
 import ToDo from "./to-do";
 import Project from "./project";
+import "./styles.css";
 
 const todos = [
     new ToDo(
