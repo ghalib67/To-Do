@@ -4,7 +4,7 @@ function Display(container,projects = []){
     const status =  document.createElement("div")
 
     const project_num = document.createElement("p")
-    project_num.textContent = `${projects.todoList.length}`
+    project_num.textContent = `${projects.length}`
 
     status.appendChild(project_num)
     header.appendChild(status)
@@ -19,3 +19,5 @@ function Display(container,projects = []){
 
     container.appendChild(project_cards)
 }
+
+export default Display
