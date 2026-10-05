@@ -5,6 +5,8 @@ import "./styles.css";
 
 const content = document.querySelector("#content")
 
+
+
 const projects = [
     new Project("School", [
         new ToDo(
@@ -20,7 +22,7 @@ const projects = [
             "High"
         )
     ]),
-
+    
     new Project("Personal", [
         new ToDo(
             "Go for a walk",
@@ -35,7 +37,7 @@ const projects = [
             "Medium"
         )
     ]),
-
+    
     new Project("Odin Project", [
         new ToDo(
             "Finish To-Do project",
@@ -44,7 +46,7 @@ const projects = [
             "High"
         )
     ]),
-
+    
     new Project("Programming", [
         new ToDo(
             "Practice Python",
@@ -59,7 +61,7 @@ const projects = [
             "High"
         )
     ]),
-
+    
     new Project("Fitness", [
         new ToDo(
             "Go to the gym",
@@ -74,7 +76,7 @@ const projects = [
             "Low"
         )
     ]),
-
+    
     new Project("Reading", [
         new ToDo(
             "Read programming book",
@@ -83,7 +85,7 @@ const projects = [
             "Medium"
         )
     ]),
-
+    
     new Project("University", [
         new ToDo(
             "Complete assignment",
@@ -98,7 +100,7 @@ const projects = [
             "Medium"
         )
     ]),
-
+    
     new Project("Web Development", [
         new ToDo(
             "Practice CSS",
@@ -113,7 +115,7 @@ const projects = [
             "High"
         )
     ]),
-
+    
     new Project("Gaming", [
         new ToDo(
             "Try new game",
@@ -122,7 +124,7 @@ const projects = [
             "Low"
         )
     ]),
-
+    
     new Project("Final Year Project", [
         new ToDo(
             "Research project ideas",
@@ -139,6 +141,32 @@ const projects = [
     ])
 ];
 
+const project_btn = document.querySelector("#project-btn")
+project_btn.addEventListener("click", () => {
+    let project_form = document.createElement("form")
+
+    let project_form_input = document.createElement("input")
+    project_form_input.setAttribute("type", "text")
+    project_form.appendChild(project_form_input)
+
+    let project_form_btn = document.createElement("button")
+    project_form_btn.setAttribute("type", "submit")
+    project_form_btn.textContent = "Create Project"
+    project_form_btn.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        projects.push(new Project(`${project_form_input.value}`,[]))
+
+        project_form.remove();
+
+        display.refresh()
+        
+    })
+    project_form.appendChild(project_form_btn)
+
+    document.body.appendChild(project_form)
+} )
 
 console.log(projects)
-Display(content,    projects)
+let display = new Display(content,projects)
+display.refresh()
