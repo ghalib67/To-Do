@@ -11,10 +11,27 @@ function Display(container,projects = []){
     container.appendChild(header)
 
     const project_cards = document.createElement("div")
+    project_cards.classList.add("cards")
     projects.forEach(project => {
         let card = document.createElement("div")
-        card.textContent = `${project.name}`
+        card.classList.add("card")
+        
+        let name = document.createElement("p")
+
+        name.textContent = project.name
+        card.appendChild(name)
+
+        let project_todos = document.createElement("ul")
+        project.todoList.forEach(todo => {
+            let new_todo = document.createElement("li")
+            new_todo.textContent = todo.title
+
+            project_todos.appendChild(new_todo)
+        });
+
+        card.appendChild(project_todos)
         project_cards.appendChild(card)
+
     })
 
     container.appendChild(project_cards)
