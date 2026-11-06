@@ -46,7 +46,7 @@ function Display(container, projects = []) {
                     todo_form.appendChild(todo_form_description)
 
                     let todo_form_dueDate = document.createElement("input")
-                    todo_form_dueDate.setAttribute("type", "text")
+                    todo_form_dueDate.setAttribute("type", "date")
                     todo_form.appendChild(todo_form_dueDate)
                     
                     let todo_form_priority = document.createElement("input")
@@ -111,7 +111,7 @@ function Display(container, projects = []) {
                         todo_card_details.appendChild(todo_card_description);
 
                         let todo_card_dueDate = document.createElement("input");
-                        todo_card_dueDate.setAttribute("type", "text");
+                        todo_card_dueDate.setAttribute("type", "date");
                         todo_card_dueDate.value = todo.dueDate;
                         todo_card_details.appendChild(todo_card_dueDate);
 
