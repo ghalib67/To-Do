@@ -1,3 +1,5 @@
+import ToDo from "./to-do";
+
 function Display(container, projects = []) {
     this.container = container;
     this.projects = projects;
@@ -28,6 +30,51 @@ function Display(container, projects = []) {
                 let project_view = document.createElement("div");
                 project_view.classList.add("project-view");
 
+                let project_view_addTodo = document.createElement("button");
+                project_view_addTodo.textContent = "add ToDo"
+                project_view_addTodo.addEventListener("click", () => {
+                    let todo_form = document.createElement("form");
+                    todo_form.classList.add("todo-form")
+
+                    let todo_form_title = document.createElement("input")
+                    todo_form_title.setAttribute("type", "text")
+                    todo_form.appendChild(todo_form_title)
+
+                    let todo_form_description = document.createElement("input")
+                    todo_form_description.setAttribute("type", "text")
+                    todo_form.appendChild(todo_form_description)
+
+                    let todo_form_dueDate = document.createElement("input")
+                    todo_form_dueDate.setAttribute("type", "text")
+                    todo_form.appendChild(todo_form_dueDate)
+                    
+                    let todo_form_priority = document.createElement("input")
+                    todo_form_priority.setAttribute("type", "text")
+                    todo_form.appendChild(todo_form_priority)
+                    
+                    let todo_form_btn = document.createElement("button");
+                    todo_form_btn.setAttribute("type", "submit")
+                    todo_form_btn.textContent = "add-todo"
+                    
+                    todo_form.addEventListener("submit",(event) => {
+                        event.preventDefault();
+
+                        project.todoList.push(new ToDo(
+                            todo_form_title.value,
+                            todo_form_description.value,
+                            todo_form_dueDate.value,
+                            todo_form_priority.value
+                        ));
+
+                        todo_form.remove();
+
+                        this.refresh()
+                    })
+                    todo_form.appendChild(todo_form_btn)
+                    this.container.appendChild(todo_form)
+
+                })
+
                 let project_view_close = document.createElement("button");
                 project_view_close.textContent = "close"
                 project_view_close.addEventListener("click", () => {
@@ -38,6 +85,7 @@ function Display(container, projects = []) {
                 project_view_top_bar.classList.add("project-view-top-bar");
 
                 project_view_top_bar.appendChild(project_view_close);
+                project_view_top_bar.appendChild(project_view_addTodo);
 
                 let project_view_content = document.createElement("div")
                 project_view_content.classList.add("project-view-content");
@@ -47,7 +95,7 @@ function Display(container, projects = []) {
                     todo_card.classList.add("todo-card")
 
                     let todo_card_topbar = document.createElement("div");
-                    todo_card.classList.add("todo-card-topbar")                    
+                    todo_card_topbar.classList.add("todo-card-topbar")                    
 
                     let todo_card_title = document.createElement("p");
                     todo_card_title.textContent = todo.title

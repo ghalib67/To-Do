@@ -71,6 +71,13 @@ header{
     background-color: pink;
 }
 
+.todo-form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+}
+
 .project-view-content{
     flex: 20;
     background-color: brown;
@@ -80,7 +87,7 @@ header{
 }
 
 .todo-card{
-    
+
 }
 
 ul li {
