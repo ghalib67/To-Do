@@ -123,6 +123,21 @@ function Display(container, projects = []) {
                         let todo_card_btn = document.createElement("button");
                         todo_card_btn.setAttribute("type", "submit")
                         todo_card_btn.textContent = "edit-todo"
+
+                        let todo_delete_btn = document.createElement("button")
+                        todo_delete_btn.textContent = "delete"
+                        todo_delete_btn.addEventListener("click", () => {
+                                let index = project.todoList.findIndex(item => item.description === todo.description)
+                                    if (index !== -1) {
+                                        project.todoList.splice(index, 1);
+                                    }
+
+                                    saveProjects(this.projects);
+
+                                    this.refresh();
+                        })
+
+
                         todo_card_details.addEventListener("submit", (event) => {
                             event.preventDefault();
 
@@ -139,6 +154,8 @@ function Display(container, projects = []) {
                         });
                         
                         todo_card_details.appendChild(todo_card_btn)
+                        todo_card_details.appendChild(todo_delete_btn)
+
                         this.container.appendChild(todo_card_details)
                     })
 
