@@ -93,6 +93,51 @@ function Display(container, projects = []) {
                 project.todoList.forEach(todo =>{
                     let todo_card = document.createElement("div");
                     todo_card.classList.add("todo-card")
+                    todo_card.addEventListener("click", () =>{
+                        let todo_card_details = document.createElement("form");
+                        todo_card_details.classList.add("todo-form");
+
+                        let todo_card_title = document.createElement("input");
+                        todo_card_title.setAttribute("type", "text");
+                        todo_card_title.value = todo.title;
+                        todo_card_details.appendChild(todo_card_title);
+
+                        let todo_card_description = document.createElement("input");
+                        todo_card_description.setAttribute("type", "text");
+                        todo_card_description.value = todo.description;
+                        todo_card_details.appendChild(todo_card_description);
+
+                        let todo_card_dueDate = document.createElement("input");
+                        todo_card_dueDate.setAttribute("type", "text");
+                        todo_card_dueDate.value = todo.dueDate;
+                        todo_card_details.appendChild(todo_card_dueDate);
+
+                        let todo_card_priority = document.createElement("input");
+                        todo_card_priority.setAttribute("type", "text");
+                        todo_card_priority.value = todo.priority;
+                        todo_card_details.appendChild(todo_card_priority);
+                    
+                        let todo_card_btn = document.createElement("button");
+                        todo_card_btn.setAttribute("type", "submit")
+                        todo_card_btn.textContent = "edit-todo"
+                        todo_card_details.addEventListener("submit", (event) => {
+                            event.preventDefault();
+
+                            todo.title = todo_card_title.value;
+                            todo.description = todo_card_description.value;
+                            todo.dueDate = todo_card_dueDate.value;
+                            todo.priority = todo_card_priority.value;
+
+                            // Close the form
+                            todo_card_details.remove();
+
+                            // Refresh the displayed todos
+                            this.refresh()
+                        });
+                        
+                        todo_card_details.appendChild(todo_card_btn)
+                        this.container.appendChild(todo_card_details)
+                    })
 
                     let todo_card_topbar = document.createElement("div");
                     todo_card_topbar.classList.add("todo-card-topbar")                    

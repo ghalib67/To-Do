@@ -167,6 +167,6 @@ project_btn.addEventListener("click", () => {
     document.body.appendChild(project_form)
 } )
 
-console.log(projects)
+console.log(JSON.stringify(projects))
 let display = new Display(content,projects)
 display.refresh()
