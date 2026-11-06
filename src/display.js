@@ -30,6 +30,9 @@ function Display(container, projects = []) {
 
                 let project_view_close = document.createElement("button");
                 project_view_close.textContent = "close"
+                project_view_close.addEventListener("click", () => {
+                    project_view.remove();
+                });
 
                 let project_view_top_bar = document.createElement("div");
                 project_view_top_bar.classList.add("project-view-top-bar");
@@ -41,8 +44,10 @@ function Display(container, projects = []) {
 
                 project.todoList.forEach(todo =>{
                     let todo_card = document.createElement("div");
+                    todo_card.classList.add("todo-card")
 
                     let todo_card_topbar = document.createElement("div");
+                    todo_card.classList.add("todo-card-topbar")                    
 
                     let todo_card_title = document.createElement("p");
                     todo_card_title.textContent = todo.title
