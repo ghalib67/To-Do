@@ -1,13 +1,14 @@
 import ToDo from "./to-do";
 import Project from "./project";
 import Display from "./display";
+import { saveProjects, loadProjects } from "./storage";
 import "./styles.css";
 
 const content = document.querySelector("#content")
 
 
 
-const projects = [
+const default_projects = [
     new Project("School", [
         new ToDo(
             "Study JavaScript",
@@ -141,6 +142,8 @@ const projects = [
     ])
 ];
 
+const projects = loadProjects() || default_projects;
+
 const project_btn = document.querySelector("#project-btn")
 project_btn.addEventListener("click", () => {
     let project_form = document.createElement("form")
@@ -156,6 +159,7 @@ project_btn.addEventListener("click", () => {
         event.preventDefault();
 
         projects.push(new Project(`${project_form_input.value}`,[]))
+        saveProjects(projects);
 
         project_form.remove();
 

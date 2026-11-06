@@ -1,4 +1,5 @@
 import ToDo from "./to-do";
+import { saveProjects } from "./storage";
 
 function Display(container, projects = []) {
     this.container = container;
@@ -65,6 +66,8 @@ function Display(container, projects = []) {
                             todo_form_dueDate.value,
                             todo_form_priority.value
                         ));
+                        
+                        saveProjects(this.projects);
 
                         todo_form.remove();
 
@@ -128,10 +131,10 @@ function Display(container, projects = []) {
                             todo.dueDate = todo_card_dueDate.value;
                             todo.priority = todo_card_priority.value;
 
-                            // Close the form
+                            saveProjects(this.projects);
+                            
                             todo_card_details.remove();
 
-                            // Refresh the displayed todos
                             this.refresh()
                         });
                         
